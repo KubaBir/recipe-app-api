@@ -40,7 +40,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     def _get_or_create_ingredients(self, ingredients, recipe):
         auth_user = self.context['request'].user
         for ingredient in ingredients:
-            ingredient_obj, created = Tag.objects.get_or_create(
+            ingredient_obj, created = Ingredient.objects.get_or_create(
                 user=auth_user,
                 **ingredient
             )
@@ -73,6 +73,9 @@ class RecipeSerializer(serializers.ModelSerializer):
 class RecipeDetailSerializer(RecipeSerializer):
     class Meta(RecipeSerializer.Meta):
         fields = RecipeSerializer.Meta.fields + ['description', 'image']
+        validators = []
+
+    # def validate(self, attrs):
 
 
 class RecipeImageSerializer(serializers.ModelSerializer):
