@@ -1,2 +1,3 @@
 # recipe-app-api
-Django REST framework
+Django Rest course project.\
+Udemy link: https://www.udemy.com/course/django-python-advanced/
